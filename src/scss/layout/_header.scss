@@ -1,0 +1,20 @@
+.header {
+  background-color: $color-primary;
+  color: $color-white;
+  padding: 1.5rem 0;
+
+  .container {
+    display: flex;
+    align-items: center;
+  }
+
+  &__logo {
+    font-family: $font-secondary;
+    margin-right: 20rem;
+  }
+
+  &__input-box {
+    display: flex;
+    align-items: center;
+  }
+}
