@@ -15,7 +15,8 @@ body {
 
 .heading-primary {
   font-size: 3rem;
-  line-height: 1; }
+  line-height: 1;
+  font-weight: 400; }
 
 .heading-secondary {
   font-size: 2.5rem;
@@ -36,6 +37,7 @@ body {
   margin-bottom: 3rem; }
 
 .form {
+  flex: 0 0 75%;
   display: flex;
   align-items: center; }
   .form > * {
@@ -43,6 +45,7 @@ body {
   .form__search {
     font-family: "Quicksand", sans-serif;
     background-color: #fff;
+    width: 25rem;
     padding: 0.8rem 2rem;
     border: none;
     outline: none;
@@ -78,21 +81,61 @@ body {
     align-items: center; }
   .header__logo {
     font-family: "Galada", cursive;
-    margin-right: 20rem; }
-  .header__input-box {
-    display: flex;
-    align-items: center; }
+    flex: 0 0 25%; }
 
-.project-section {
+.projects {
   flex: 0 0 25%;
   min-height: 100vh;
-  padding: 5rem 1.5rem;
+  padding: 5rem 2rem;
   border-right: 1px solid #ccc; }
+  .projects__project {
+    position: relative;
+    font-size: 1.8rem;
+    padding: 0.75rem;
+    border-top: 1px dotted #aaa; }
+    .projects__project:hover {
+      cursor: pointer;
+      background-color: rgba(170, 170, 170, 0.3);
+      border-top: 1px solid transparent;
+      border-radius: 1rem; }
+    .projects__project:hover > .projects__delete {
+      display: block; }
+    .projects__project i:nth-of-type(1) {
+      margin-right: 2rem; }
+  .projects__delete {
+    display: none;
+    position: absolute;
+    color: #f56a6a;
+    top: 50%;
+    right: .75rem;
+    transform: translateY(-50%); }
+  .projects__default-list, .projects__custom-list {
+    margin: 2rem 0;
+    list-style: none; }
+  .projects__new-btn {
+    font-size: 1.6rem;
+    font-family: "Quicksand", sans-serif;
+    font-weight: 500;
+    width: 100%;
+    color: #fff;
+    background-color: #194775;
+    padding: 1rem 2rem;
+    border-radius: 3rem;
+    border: none;
+    outline: none;
+    cursor: pointer; }
+  .projects__new-input {
+    display: none;
+    font-size: 1.4rem;
+    width: 100%;
+    padding: 1rem 1.5rem;
+    margin-top: 1rem;
+    outline: none; }
 
 .showcase .container {
   display: flex; }
 
-.task-section {
+.tasks {
   flex: 0 0 75%;
   min-height: 100vh;
   padding: 5rem 4rem;

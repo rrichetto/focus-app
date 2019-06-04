@@ -10,11 +10,6 @@
 
   &__logo {
     font-family: $font-secondary;
-    margin-right: 20rem;
-  }
-
-  &__input-box {
-    display: flex;
-    align-items: center;
+    flex: 0 0 25%;
   }
 }

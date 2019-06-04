@@ -1,4 +1,6 @@
 .form {
+  flex: 0 0 75%;
+
   display: flex;
   align-items: center;
 
@@ -9,6 +11,7 @@
   &__search {
     font-family: $font-primary;
     background-color: $color-white;
+    width: 25rem;
     padding: 0.8rem 2rem;
     border: none;
     outline: none;

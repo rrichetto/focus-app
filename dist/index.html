@@ -38,10 +38,24 @@
 
     <main class="showcase">
       <div class="container">
-        <section class="project-section">
+        <section class="projects">
           <h2 class="heading-secondary">My Projects</h2>
+          <ul class="projects__default-list">
+            <li class="projects__project"><i class="fas fa-inbox"></i><span class="projects__title">Inbox</span></li>
+            <li class="projects__project"><i class="fas fa-list-ul"></i><span class="projects__title">All Tasks</span></li>
+            <li class="projects__project"><i class="fas fa-calendar-day"></i><span class="projects__title">Today</span></li>
+            <li class="projects__project"><i class="far fa-calendar-alt"></i><span class="projects__title">Next 7 Days</span></li>
+          </ul>
+          <button class="projects__new-btn">Create New Project</button>
+          <input class="projects__new-input" type="text" placeholder="Enter project name">
+          <ul class="projects__custom-list">
+            <li class="projects__project"><i class="fas fa-chevron-right"></i><span
+                class="projects__title">Business</span><i class="projects__delete far fa-times-circle"></i></li>
+            <li class="projects__project"><i class="fas fa-chevron-right"></i><span
+                class="projects__title">Family</span><i class="projects__delete far fa-times-circle"></i></li>
+          </ul>
         </section>
-        <section class="task-section">
+        <section class="tasks">
           <h2 class="heading-secondary">Inbox</h2>
         </section>
       </div>
