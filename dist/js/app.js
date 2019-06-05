@@ -6,6 +6,7 @@ const Controller = (_ => {
   // Cache DOM
   const formEl = document.querySelector('.form');
   const taskListEl = document.querySelector('.tasks__list');
+  const projectListEl = document.querySelector('.projects');
 
   const init = _ => {
     listeners();
@@ -13,8 +14,8 @@ const Controller = (_ => {
 
   const listeners = _ => {
     formEl.addEventListener('submit', ctrlAddTask);
-
     taskListEl.addEventListener('click', ctrlDeleteTask);
+    projectListEl.addEventListener('click', ctrlChangeProject)
   };
 
   const ctrlAddTask = e => {
@@ -37,7 +38,9 @@ const Controller = (_ => {
   };
 
   const ctrlDeleteTask = e => {
+    // If the target is a delete button...
     if (e.target.classList.contains('tasks__delete')) {
+
       // Get index of task (list item) to be deleted
       const index = e.target.closest('.tasks__task').dataset.index;
 
@@ -50,9 +53,25 @@ const Controller = (_ => {
       // Render tasks
       View.renderTasks(Model.getProject(currentProject));
     }
-  }
+  };
 
+  const ctrlChangeProject = e => {
+    // Get the project 'li'
+    const projectLI = e.target.closest('.projects__project');
 
+    // If the target is a Project 'li', but NOT a delete button...
+    if (projectLI && !(e.target.classList.contains('projects__delete'))) {
+
+      // Change project in view
+      View.changeProject(projectLI);
+
+      // Get the current project
+      const currentProject = View.getCurrentProject();
+
+      // Render tasks
+      View.renderTasks(Model.getProject(currentProject));
+    }
+  };
 
   return {
     init

@@ -51,13 +51,20 @@ const View = (_ => {
 
       taskListEl.insertAdjacentHTML('beforeend', markup);
     })
+  };
+
+  const changeProject = project => {
+    for (let elem of projectEls) elem.classList.remove('active');
+
+    project.classList.add('active');
   }
 
   return {
     getInput,
     clearInput,
     getCurrentProject,
-    renderTasks
+    renderTasks,
+    changeProject
   }
 })();
 
