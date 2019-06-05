@@ -12,6 +12,16 @@ const View = (_ => {
     }
   }
 
+  const getCurrentProject = _ => {
+    const projectEls = document.querySelectorAll('.projects__project');
+
+    for (let project of projectEls) {
+      if (project.classList.contains('active')) {
+        return project.textContent;
+      }
+    }
+  }
+
   const renderTasks = project => {
     taskListEl.innerHTML = '';
 
@@ -42,13 +52,14 @@ const View = (_ => {
       });
 
       li.classList.add('active');
-    }
+    };
   }
 
   return {
     getInput,
     renderTasks,
-    changeProject
+    changeProject,
+    getCurrentProject
   }
 })();
 

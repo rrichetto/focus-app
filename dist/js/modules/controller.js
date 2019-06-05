@@ -22,15 +22,23 @@ const Controller = (_ => {
       // Get the input
       const input = View.getInput();
 
-      // Add task to Model
-      Model.addTask(input.name, input.date);
+      // Get the current project
+      let currentProject = View.getCurrentProject();
+      console.log(currentProject);
 
-      // Add task to View
-      View.renderTasks(Model.projects.inbox);
+      // Add task to Model
+      Model.addTask(currentProject, input.name, input.date);
+
+      // Add tasks to View
+      View.renderTasks(Model.getProject(currentProject));
     });
 
     // Click on new Project
-    projectSectionEl.addEventListener("click", View.changeProject);
+    projectSectionEl.addEventListener("click", e => {
+      View.changeProject(e);
+      let currentProject = View.getCurrentProject();
+      View.renderTasks(Model.getProject(currentProject));
+    });
   }
 
   return {
