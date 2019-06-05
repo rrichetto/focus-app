@@ -7,6 +7,8 @@ const Controller = (_ => {
   const formEl = document.querySelector('.form');
   const taskListEl = document.querySelector('.tasks__list');
   const projectListEl = document.querySelector('.projects');
+  const newProjectBtnEl = document.querySelector('.projects__new-btn');
+  const newProjectInputEl = document.querySelector('.projects__new-input');
 
   const init = _ => {
     listeners();
@@ -15,7 +17,9 @@ const Controller = (_ => {
   const listeners = _ => {
     formEl.addEventListener('submit', ctrlAddTask);
     taskListEl.addEventListener('click', ctrlDeleteTask);
-    projectListEl.addEventListener('click', ctrlChangeProject)
+    projectListEl.addEventListener('click', ctrlChangeProject);
+    newProjectBtnEl.addEventListener('click', View.showNewProjectInput);
+    newProjectInputEl.addEventListener('keypress', ctrlAddNewProject)
   };
 
   const ctrlAddTask = e => {
@@ -72,6 +76,19 @@ const Controller = (_ => {
       View.renderTasks(Model.getProject(currentProject));
     }
   };
+
+  const ctrlAddNewProject = e => {
+    if (e.keyCode === 13) {
+      // Get the input
+      const newProject = View.getNewProjectInput();
+
+      // Add input to model
+      Model.addProject(newProject);
+
+      // Render projects
+      View.renderProjects(Model.getCustomProjectNames());
+    }
+  }
 
   return {
     init

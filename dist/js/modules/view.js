@@ -5,6 +5,8 @@ const View = (_ => {
   const dateInputEl = document.querySelector('.form__date');
   const projectEls = document.querySelectorAll('.projects__project');
   const taskListEl = document.querySelector('.tasks__list');
+  const newProjectInputEl = document.querySelector('.projects__new-input');
+  const customProjectListEl = document.querySelector('.projects__custom-list');
 
   const getInput = _ => {
     return {
@@ -59,12 +61,40 @@ const View = (_ => {
     project.classList.add('active');
   }
 
+  const showNewProjectInput = _ => {
+    newProjectInputEl.style.display = 'block';
+    newProjectInputEl.focus();
+  }
+
+  const hideNewProjectInput = _ => {
+    newProjectInputEl.style.display = 'none';
+  }
+
+  const getNewProjectInput = _ => newProjectInputEl.value;
+
+  const renderProjects = projectNames => {
+    customProjectListEl.innerHTML = '';
+
+    let markup;
+
+    projectNames.forEach((name, index) => {
+      markup = `
+        <li class="projects__project" data-index="${index}"><i class="fas fa-chevron-right"></i><span class="projects__title">${name}</span><i class="projects__delete far fa-times-circle"></i></li>
+      `;
+
+      customProjectListEl.insertAdjacentHTML('beforeend', markup);
+    })
+  };
+
   return {
     getInput,
     clearInput,
     getCurrentProject,
     renderTasks,
-    changeProject
+    changeProject,
+    showNewProjectInput,
+    getNewProjectInput,
+    renderProjects
   }
 })();
 
