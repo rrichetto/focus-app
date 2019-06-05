@@ -12,9 +12,9 @@
 
     &:hover {
       cursor: pointer;
-      background-color: rgba($color-grey, 0.3);
-      border-top: 1px solid transparent;
-      border-radius: 1rem;
+      background-color: #e7e7e7;
+      // border-top: 1px solid transparent;
+      // border-radius: 1rem;
     }
 
     &:hover > .projects__delete {
@@ -34,7 +34,7 @@
     display: none;
 
     position: absolute;
-    color: rgb(245, 106, 106);
+    color: #f56a6a;
     top: 50%;
     right: .75rem;
     transform: translateY(-50%);
@@ -61,6 +61,10 @@
     border: none;
     outline: none;
     cursor: pointer;
+
+    &:hover {
+      background-color: rgba($color-primary, 0.9);
+    }
   }
 
   &__new-input {

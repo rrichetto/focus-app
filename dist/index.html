@@ -29,7 +29,7 @@
           <i class="fab fa-napster"></i> Focus
         </h1>
         <form class="form">
-          <input class="form__search" type="text" placeholder="enter task" />
+          <input class="form__add" type="text" placeholder="enter task" />
           <input class="form__date" type="date" />
           <button class="form__submit" type="submit">Add Task</button>
         </form>
@@ -40,14 +40,17 @@
       <div class="container">
         <section class="projects">
           <h2 class="heading-secondary">My Projects</h2>
+
           <ul class="projects__default-list">
-            <li class="projects__project"><i class="fas fa-inbox"></i><span class="projects__title">Inbox</span></li>
+            <li class="projects__project active"><i class="fas fa-inbox"></i><span class="projects__title">Inbox</span></li>
             <li class="projects__project"><i class="fas fa-list-ul"></i><span class="projects__title">All Tasks</span></li>
             <li class="projects__project"><i class="fas fa-calendar-day"></i><span class="projects__title">Today</span></li>
             <li class="projects__project"><i class="far fa-calendar-alt"></i><span class="projects__title">Next 7 Days</span></li>
           </ul>
+
           <button class="projects__new-btn">Create New Project</button>
           <input class="projects__new-input" type="text" placeholder="Enter project name">
+
           <ul class="projects__custom-list">
             <li class="projects__project"><i class="fas fa-chevron-right"></i><span
                 class="projects__title">Business</span><i class="projects__delete far fa-times-circle"></i></li>
@@ -55,12 +58,35 @@
                 class="projects__title">Family</span><i class="projects__delete far fa-times-circle"></i></li>
           </ul>
         </section>
+
         <section class="tasks">
-          <h2 class="heading-secondary">Inbox</h2>
+          <div class="tasks__header">
+            <h2 class="heading-secondary">Inbox</h2>
+            <input class="tasks__search" type="text" placeholder="search tasks">
+          </div>
+          <ul class="tasks__list">
+
+            <li class="tasks__task">
+              <i class="tasks__checkbox far fa-square"></i>
+              <span class="tasks__name">Walk the dog</span>
+              <i class="tasks__priority far fa-star"></i>
+              <span class="tasks__date">Jun 20</span>
+              <i class="tasks__delete far fa-times-circle"></i>
+            </li>
+
+            <li class="tasks__task">
+              <i class="tasks__checkbox far fa-square"></i>
+              <span class="tasks__name">Do the dishes</span>
+              <i class="tasks__priority far fa-star"></i>
+              <span class="tasks__date">Jun 17</span>
+              <i class="tasks__delete far fa-times-circle"></i>
+            </li>
+
+          </ul>
         </section>
       </div>
     </main>
 
-    <script src="js/index.js" type="module"></script>
+    <script src="js/app.js" type="module"></script>
   </body>
 </html>

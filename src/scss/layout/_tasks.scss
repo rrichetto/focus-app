@@ -3,4 +3,82 @@
   min-height: 100vh;
   padding: 5rem 4rem;
   background-color: $color-white;
+
+  &__header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  &__search {
+    font-size: 1.4rem;
+    padding: .5rem 1rem;
+    outline: none;
+  }
+
+  &__list {
+    list-style: none;
+    font-size: 1.6rem;
+    padding: 2rem;
+  }
+
+  &__task {
+    position: relative;
+
+    display: flex;
+    align-items: center;
+
+    padding: 1rem;
+    border-bottom: 1px solid #ccc;
+
+    &:hover .tasks__delete {
+      visibility: visible;
+    }
+
+    &:hover .tasks__priority {
+      display: block;
+    }
+  }
+
+  &__priority {
+    display: none;
+
+    margin-right: 5rem;
+    color: $color-grey;
+
+    &:hover {
+      cursor: pointer;
+    }
+  }
+
+  &__checkbox {
+    margin-right: 2rem;
+
+    font-size: 1.8rem;
+
+
+    &:hover {
+      cursor: pointer;
+    }
+  }
+
+  &__name {
+    margin-right: auto;
+  }
+
+  &__date {
+    font-size: 1.4rem;
+    margin-right: 5rem;
+  }
+
+  &__delete {
+    visibility: hidden;
+
+    color: #f56a6a;
+    font-size: 1.8rem;
+
+    &:hover {
+      cursor: pointer;
+    }
+  }
 }

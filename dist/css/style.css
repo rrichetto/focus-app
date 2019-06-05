@@ -36,13 +36,16 @@ body {
 .mb-lg {
   margin-bottom: 3rem; }
 
+.active {
+  background-color: #ddd; }
+
 .form {
   flex: 0 0 75%;
   display: flex;
   align-items: center; }
   .form > * {
     font-size: 1.6rem; }
-  .form__search {
+  .form__add {
     font-family: "Quicksand", sans-serif;
     background-color: #fff;
     width: 25rem;
@@ -95,9 +98,7 @@ body {
     border-top: 1px dotted #aaa; }
     .projects__project:hover {
       cursor: pointer;
-      background-color: rgba(170, 170, 170, 0.3);
-      border-top: 1px solid transparent;
-      border-radius: 1rem; }
+      background-color: #e7e7e7; }
     .projects__project:hover > .projects__delete {
       display: block; }
     .projects__project i:nth-of-type(1) {
@@ -124,6 +125,8 @@ body {
     border: none;
     outline: none;
     cursor: pointer; }
+    .projects__new-btn:hover {
+      background-color: rgba(25, 71, 117, 0.9); }
   .projects__new-input {
     display: none;
     font-size: 1.4rem;
@@ -140,3 +143,47 @@ body {
   min-height: 100vh;
   padding: 5rem 4rem;
   background-color: #fff; }
+  .tasks__header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center; }
+  .tasks__search {
+    font-size: 1.4rem;
+    padding: .5rem 1rem;
+    outline: none; }
+  .tasks__list {
+    list-style: none;
+    font-size: 1.6rem;
+    padding: 2rem; }
+  .tasks__task {
+    position: relative;
+    display: flex;
+    align-items: center;
+    padding: 1rem;
+    border-bottom: 1px solid #ccc; }
+    .tasks__task:hover .tasks__delete {
+      visibility: visible; }
+    .tasks__task:hover .tasks__priority {
+      display: block; }
+  .tasks__priority {
+    display: none;
+    margin-right: 5rem;
+    color: #aaa; }
+    .tasks__priority:hover {
+      cursor: pointer; }
+  .tasks__checkbox {
+    margin-right: 2rem;
+    font-size: 1.8rem; }
+    .tasks__checkbox:hover {
+      cursor: pointer; }
+  .tasks__name {
+    margin-right: auto; }
+  .tasks__date {
+    font-size: 1.4rem;
+    margin-right: 5rem; }
+  .tasks__delete {
+    visibility: hidden;
+    color: #f56a6a;
+    font-size: 1.8rem; }
+    .tasks__delete:hover {
+      cursor: pointer; }
