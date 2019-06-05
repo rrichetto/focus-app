@@ -1,39 +1,36 @@
 const Model = (_ => {
 
-    // State
-    const projects = {
-      inbox: [],
-      allTasks: [],
-      today: [],
-      next7Days: []
-    };
+  const Projects = {
+    inbox: [],
+    allTasks: [],
+    today: [],
+    nextDays: []
+  }
 
-    const Task = function(name, date) {
-      this.name = name;
-      this.date = date;
-      this.priority = false;
-    };
+  const Task = function(name, date) {
+    this.name = name;
+    this.date = date;
+    this.priority = false;
+    this.completed = false;
+  }
 
-    const addTask = (projectName, name, date) => {
-      const newTask = new Task(name, date);
+  const addTask = (currentProject, name, date) => {
+    const task = new Task(name, date);
 
-      projects[camelize(projectName)].push(newTask);
-    };
+    Projects[currentProject].push(task);
+  }
 
-    const camelize = str => {
-      return str.replace(/[^a-z ]/gi, "")
-                .replace(/(?:^\w|[A-Z]|\b\w|\s+)/g, function(match, index) {
-                  if (+match === 0) return ""; // or if (/\s+/.test(match)) for white spaces
-                  return index == 0 ? match.toLowerCase() : match.toUpperCase();
-                });
-    }
+  const deleteTask = (currentProject, index) => {
+    Projects[currentProject].splice(index, 1);
+  }
 
-    const getProject = projectName => projects[camelize(projectName)];
+  const getProject = project => Projects[project];
 
-    return {
-      addTask,
-      getProject
-    };
+  return {
+    addTask,
+    deleteTask,
+    getProject
+  }
 })();
 
 export default Model;

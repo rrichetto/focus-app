@@ -1,0 +1,44 @@
+CONTROLLER
+- 'Submit' Add Task
+- 'Click' on different project 'li'
+- 'Click' on Create New Project
+- 'Enter' on new project name input
+- 'Click' on project delete
+- 'Click' on task delete
+- 'Click' on task checkbox - for color change and add "hide/show completed"
+- 'Click' on task priority
+- 'Dbl Click' on project name (to edit)
+- 'Dbl Click' on task name (to edit)
+- 'Dbl Click' on task date (to edit)
+- 'Keyup' on Search field
+- 'Load' get data from local storage
+
+
+
+MODEL
+- State: Projects object (with lists and tasks)
+- Add project
+- Delete project
+- Task constructor
+- Add Task to project(s)
+- Delete Task from project(s)
+- Move completed tasks to end (add 'completed: false' after 'priority' in construct)
+- Get current date (to know if it goes in 'Today' or 'Next 7 Days')
+- Format project name (camelCase)
+- Format date ('Jun 20')
+- Persist data to local storage
+
+
+
+VIEW
+- Get input
+- Clear inputs
+- Get current Project
+- Render project heading
+- Render project tab (background-color)
+- Render tasks
+- Filter (search) tasks
+- Show new task name field
+- Get new task name
+- Show new date field
+- Get new date
