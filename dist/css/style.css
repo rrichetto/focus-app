@@ -169,6 +169,8 @@ body {
     .tasks__task .fas {
       color: #194775;
       display: block; }
+  .tasks__faded {
+    color: #aaa; }
   .tasks__priority {
     display: none;
     margin-right: 5rem;

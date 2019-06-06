@@ -45,10 +45,10 @@ const View = (_ => {
 
     project.forEach((task, index) => {
       markup = `
-        <li class="tasks__task" data-index="${index}">
-          <i class="tasks__checkbox far fa-square"></i>
+        <li class="tasks__task ${task.completed ? 'tasks__faded' : ''}" data-index="${index}">
+          <i class="tasks__checkbox ${task.completed ? 'fas fa-check-square' : 'far fa-square'}"></i>
           <span class="tasks__name">${task.name}</span>
-          <i class="tasks__priority ${task.priority === true ? 'fas fa-star' : 'far fa-star'}"></i>
+          <i class="tasks__priority ${task.priority ? 'fas fa-star' : 'far fa-star'}"></i>
           <span class="tasks__date">${task.date ? task.date : 'add date'}</span>
           <i class="tasks__delete far fa-times-circle"></i>
         </li>

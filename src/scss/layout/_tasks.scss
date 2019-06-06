@@ -46,6 +46,10 @@
     }
   }
 
+  &__faded {
+    color: $color-grey;
+  }
+
   &__priority {
     display: none;
 

@@ -24,6 +24,7 @@ const Controller = (_ => {
     projectListEl.addEventListener('click', ctrlDeleteProject);
     searchInputEl.addEventListener('keyup', View.searchTasks);
     taskListEl.addEventListener('click', ctrlChangePriority);
+    taskListEl.addEventListener('click', ctrlChangeCompleted);
   };
 
   const ctrlAddTask = e => {
@@ -129,6 +130,23 @@ const Controller = (_ => {
 
       // Change the priority of the task
       Model.changePriority(currentProject, taskIndex);
+
+      // Render tasks
+      View.renderTasks(Model.getProject(currentProject));
+    }
+  };
+
+  const ctrlChangeCompleted = e => {
+    if (e.target.classList.contains('tasks__checkbox')) {
+
+      // Get index of task 'li
+      const taskIndex = e.target.closest('.tasks__task').dataset.index;
+
+      // Get current project
+      const currentProject = View.getCurrentProject();
+
+      // Change the priority of the task
+      Model.changeCompleted(currentProject, taskIndex);
 
       // Render tasks
       View.renderTasks(Model.getProject(currentProject));

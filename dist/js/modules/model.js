@@ -53,6 +53,36 @@ const Model = (_ => {
     } else {
       Projects[currentProject][taskIndex].priority = false;
     }
+
+    sortTasks(currentProject);
+  };
+
+  const changeCompleted = (currentProject, taskIndex) => {
+    if (Projects[currentProject][taskIndex].completed === false) {
+      Projects[currentProject][taskIndex].completed = true;
+    } else {
+      Projects[currentProject][taskIndex].completed = false;
+    }
+
+    sortTasks(currentProject);
+  }
+
+  const sortTasks = projectName => {
+    const priorityTasks = [];
+    const regularTasks = [];
+    const completedTasks = [];
+
+    Projects[projectName].forEach(task => {
+      if (task.completed === true) {
+        completedTasks.push(task);
+      } else if (task.priority === true) {
+        priorityTasks.push(task);
+      } else {
+        regularTasks.push(task);
+      }
+    });
+
+    Projects[projectName] = [...priorityTasks, ...regularTasks, ...completedTasks];
   }
 
   const camelCase = str => {
@@ -71,7 +101,8 @@ const Model = (_ => {
     getCustomProjectNames,
     addProject,
     deleteProject,
-    changePriority
+    changePriority,
+    changeCompleted
   }
 })();
 
