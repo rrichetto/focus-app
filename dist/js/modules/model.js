@@ -1,13 +1,10 @@
 const Model = (_ => {
 
-  const Projects = {
+  let Projects = {
     inbox: [],
-    allTasks: [],
-    today: [],
-    nextDays: []
   }
 
-  const customProjectNames = [];
+  let customProjectNames = [];
 
   const Task = function(name, date) {
     this.name = name;
@@ -20,10 +17,14 @@ const Model = (_ => {
     const task = new Task(name, date);
 
     Projects[currentProject].push(task);
+
+    persistData();
   };
 
   const deleteTask = (currentProject, index) => {
     Projects[currentProject].splice(index, 1);
+
+    persistData();
   };
 
   const getProject = project => Projects[project];
@@ -36,6 +37,8 @@ const Model = (_ => {
 
     // Add camelCase project name to Projects data
     Projects[camelCase(projectName)] = [];
+
+    persistData();
   };
 
   const deleteProject = (projectName, index) => {
@@ -44,6 +47,8 @@ const Model = (_ => {
 
     // Delete from Projects data
     delete Projects[camelCase(projectName)];
+
+    persistData();
   };
 
   const changePriority = (currentProject, taskIndex) => {
@@ -52,6 +57,8 @@ const Model = (_ => {
     } else {
       Projects[currentProject][taskIndex].priority = false;
     }
+
+    persistData();
   };
 
   const changeCompleted = (currentProject, taskIndex) => {
@@ -60,6 +67,8 @@ const Model = (_ => {
     } else {
       Projects[currentProject][taskIndex].completed = false;
     }
+
+    persistData();
   }
 
   const sortTasks = projectName => {
@@ -78,13 +87,29 @@ const Model = (_ => {
     });
 
     Projects[projectName] = [...priorityTasks, ...regularTasks, ...completedTasks];
+
+    persistData();
+  }
+
+  const persistData = _ => {
+    localStorage.setItem('Projects', JSON.stringify(Projects));
+    localStorage.setItem('customProjectNames', JSON.stringify(customProjectNames));
+  }
+
+  const readStorage = _ => {
+    const storageProjects = JSON.parse(localStorage.getItem('Projects'));
+    const storageNames = JSON.parse(localStorage.getItem('customProjectNames'));
+
+    // Restoring Projects from the localStorage
+    if (storageProjects) Projects = storageProjects;
+    if (storageNames) customProjectNames = storageNames;
   }
 
   const camelCase = str => {
     return str
       .replace(/[^a-z ]/gi, "")
       .replace(/(?:^\w|[A-Z]|\b\w|\s+)/g, function(match, index) {
-        if (+match === 0) return ""; // or if (/\s+/.test(match)) for white spaces
+        if (+match === 0) return "";
           return index == 0 ? match.toLowerCase() : match.toUpperCase();
         });
   };
@@ -98,7 +123,8 @@ const Model = (_ => {
     deleteProject,
     changePriority,
     changeCompleted,
-    sortTasks
+    sortTasks,
+    readStorage
   }
 })();
 

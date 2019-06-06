@@ -17,6 +17,18 @@ const Controller = (_ => {
   };
 
   const listeners = _ => {
+    window.addEventListener('load', _ => {
+      Model.readStorage();
+
+      // Get the current project
+      const currentProject = View.getCurrentProject();
+
+      // Render tasks
+      View.renderTasks(Model.getProject(currentProject));
+
+      View.renderProjects(Model.getCustomProjectNames());
+    })
+
     formEl.addEventListener('submit', ctrlAddTask);
     taskListEl.addEventListener('click', ctrlDeleteTask);
     projectListEl.addEventListener('click', ctrlChangeProject);
