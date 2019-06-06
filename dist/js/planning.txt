@@ -1,27 +1,22 @@
 CONTROLLER
-- 'Click' on project delete
 - 'Click' on task checkbox - for color change and add "hide/show completed"
 - 'Click' on task priority
 - 'Dbl Click' on project name (to edit)
 - 'Dbl Click' on task name (to edit)
 - 'Dbl Click' on task date (to edit)
-- 'Keyup' on search/filter field
 - 'Load' get data from local storage
 
 
 
 MODEL
-- Delete project
 - Move completed tasks to end (add 'completed: false' after 'priority' in construct)
 - Get current date (to know if it goes in 'Today' or 'Next 7 Days')
 - Format date ('Jun 20')
 - Persist data to local storage
 
 
+
 VIEW
-- Render project heading
-- Render project tab (background-color)
-- Filter (search) tasks
 - Show new task name field (edit)
 - Get new task name (edit)
 - Show new date field (edit)

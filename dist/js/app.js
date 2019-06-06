@@ -9,6 +9,7 @@ const Controller = (_ => {
   const projectListEl = document.querySelector('.projects');
   const newProjectBtnEl = document.querySelector('.projects__new-btn');
   const newProjectInputEl = document.querySelector('.projects__new-input');
+  const searchInputEl = document.querySelector('.tasks__search');
 
   const init = _ => {
     listeners();
@@ -21,6 +22,7 @@ const Controller = (_ => {
     newProjectBtnEl.addEventListener('click', View.showNewProjectInput);
     newProjectInputEl.addEventListener('keypress', ctrlAddNewProject);
     projectListEl.addEventListener('click', ctrlDeleteProject);
+    searchInputEl.addEventListener('keyup', View.searchTasks)
   };
 
   const ctrlAddTask = e => {
@@ -100,11 +102,18 @@ const Controller = (_ => {
       const projectName = e.target.closest('.projects__project').textContent;
       const index = e.target.closest('.projects__project').dataset.index;
 
-      // Delete project from model
-      Model.deleteProject(projectName, index);
+      if (confirm("Are you sure you want to delete this project? All tasks will be lost.")) {
+        // Delete project from model
+        Model.deleteProject(projectName, index);
 
-      // Render projects
-      View.renderProjects(Model.getCustomProjectNames());
+        // Render projects
+        View.renderProjects(Model.getCustomProjectNames());
+
+        // Clear task list if the currently active project was deleted
+        if(!View.getCurrentProject()) {
+          View.clearTaskList();
+        }
+      }
     }
   };
 

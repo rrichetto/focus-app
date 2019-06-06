@@ -40,13 +40,11 @@ const Model = (_ => {
   };
 
   const deleteProject = (projectName, index) => {
-    if (confirm("Are you sure you want to delete this project? All tasks will be lost.")) {
-      // Delete from customProjectNames
-      customProjectNames.splice(index, 1);
-  
-      // Delete from Projects data
-      delete Projects[camelCase(projectName)];
-    }
+    // Delete from customProjectNames
+    customProjectNames.splice(index, 1);
+
+    // Delete from Projects data
+    delete Projects[camelCase(projectName)];
   };
 
   const camelCase = str => {

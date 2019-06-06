@@ -150,7 +150,8 @@ body {
   .tasks__search {
     font-size: 1.4rem;
     padding: .5rem 1rem;
-    outline: none; }
+    outline: none;
+    border: 2px solid lightgrey; }
   .tasks__list {
     list-style: none;
     font-size: 1.6rem;

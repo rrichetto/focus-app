@@ -3,22 +3,23 @@ const View = (_ => {
   // Cache DOM
   const taskInputEl = document.querySelector('.form__add');
   const dateInputEl = document.querySelector('.form__date');
-  // const projectEls = document.querySelectorAll('.projects__project');
   const taskListEl = document.querySelector('.tasks__list');
   const newProjectInputEl = document.querySelector('.projects__new-input');
   const customProjectListEl = document.querySelector('.projects__custom-list');
+  const searchInputEl = document.querySelector('.tasks__search');
+  const tasksHeadingEl = document.querySelector('.tasks__heading');
 
   const getInput = _ => {
     return {
       name: taskInputEl.value,
       date: dateInputEl.value
     }
-  }
+  };
 
   const clearInput = _ => {
     taskInputEl.value = '';
     dateInputEl.value = '';
-  }
+  };
 
   const getCurrentProject = _ => {
     const projectEls = document.querySelectorAll('.projects__project');
@@ -26,16 +27,16 @@ const View = (_ => {
     for (let project of projectEls) {
       if (project.classList.contains('active')) return camelCase(project.textContent);
     }
-  }
+  };
 
   const camelCase = str => {
     return str
       .replace(/[^a-z ]/gi, "")
       .replace(/(?:^\w|[A-Z]|\b\w|\s+)/g, function(match, index) {
-        if (+match === 0) return ""; // or if (/\s+/.test(match)) for white spaces
+        if (+match === 0) return "";
           return index == 0 ? match.toLowerCase() : match.toUpperCase();
         });
-  }
+  };
 
   const renderTasks = project => {
     taskListEl.innerHTML = '';
@@ -63,17 +64,19 @@ const View = (_ => {
     for (let elem of projectEls) elem.classList.remove('active');
 
     project.classList.add('active');
-  }
+
+    tasksHeadingEl.textContent = project.textContent;
+  };
 
   const showNewProjectInput = _ => {
     newProjectInputEl.style.display = 'block';
     newProjectInputEl.focus();
-  }
+  };
 
   const hideNewProjectInput = _ => {
     newProjectInputEl.value = '';
     newProjectInputEl.style.display = 'none';
-  }
+  };
 
   const getNewProjectInput = _ => newProjectInputEl.value;
 
@@ -91,6 +94,30 @@ const View = (_ => {
     })
   };
 
+  const clearTaskList = _ => {
+    taskListEl.innerHTML = '';
+  };
+
+  const searchTasks = _ => {
+    const taskEls = document.querySelectorAll('.tasks__task');
+    const input = document.querySelector('.tasks__search').value;
+    console.log('fired');
+
+    taskEls.forEach(task => {
+      if (task.textContent.toLowerCase().includes(input.toLowerCase())) {
+        task.style.display = 'flex';
+      } else {
+        task.style.display = 'none';
+      }
+    });
+
+    if (input !== '') {
+      searchInputEl.style.border = '2px solid #ff8686';
+    } else {
+      searchInputEl.style.border = '2px solid lightgrey'
+    }
+  };
+
   return {
     getInput,
     clearInput,
@@ -100,7 +127,9 @@ const View = (_ => {
     showNewProjectInput,
     hideNewProjectInput,
     getNewProjectInput,
-    renderProjects
+    renderProjects,
+    clearTaskList,
+    searchTasks
   }
 })();
 
