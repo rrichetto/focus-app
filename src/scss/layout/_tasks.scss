@@ -11,7 +11,6 @@
 
   &__header {
     display: flex;
-    // justify-content: space-between;
     align-items: center;
   }
 
@@ -26,6 +25,10 @@
     font-size: 1.4rem;
     margin-right: 5rem;
     text-decoration: none;
+
+    @media (max-width: 900px) {
+      margin-right: 2rem;
+    }
 
     &:hover {
       color: #000;

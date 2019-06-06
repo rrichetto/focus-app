@@ -176,6 +176,9 @@ body {
     font-size: 1.4rem;
     margin-right: 5rem;
     text-decoration: none; }
+    @media (max-width: 900px) {
+      .tasks__sort {
+        margin-right: 2rem; } }
     .tasks__sort:hover {
       color: #000; }
   .tasks__search {
