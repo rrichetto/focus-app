@@ -1,9 +1,6 @@
 CONTROLLER
 - 'Click' on task checkbox - for color change and add "hide/show completed"
 - 'Click' on task priority
-- 'Dbl Click' on project name (to edit)
-- 'Dbl Click' on task name (to edit)
-- 'Dbl Click' on task date (to edit)
 - 'Load' get data from local storage
 
 
@@ -15,6 +12,14 @@ MODEL
 - Persist data to local storage
 
 
+***********
+***EXTRA***
+***********
+
+CONTROLLER
+- 'Dbl Click' on project name (to edit)
+- 'Dbl Click' on task name (to edit)
+- 'Dbl Click' on task date (to edit)
 
 VIEW
 - Show new task name field (edit)

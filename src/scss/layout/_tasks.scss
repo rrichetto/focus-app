@@ -39,6 +39,11 @@
     &:hover .tasks__priority {
       display: block;
     }
+
+    .fas {
+      color: $color-primary;
+      display: block;
+    }
   }
 
   &__priority {

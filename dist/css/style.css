@@ -166,6 +166,9 @@ body {
       visibility: visible; }
     .tasks__task:hover .tasks__priority {
       display: block; }
+    .tasks__task .fas {
+      color: #194775;
+      display: block; }
   .tasks__priority {
     display: none;
     margin-right: 5rem;

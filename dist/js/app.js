@@ -22,7 +22,8 @@ const Controller = (_ => {
     newProjectBtnEl.addEventListener('click', View.showNewProjectInput);
     newProjectInputEl.addEventListener('keypress', ctrlAddNewProject);
     projectListEl.addEventListener('click', ctrlDeleteProject);
-    searchInputEl.addEventListener('keyup', View.searchTasks)
+    searchInputEl.addEventListener('keyup', View.searchTasks);
+    taskListEl.addEventListener('click', ctrlChangePriority);
   };
 
   const ctrlAddTask = e => {
@@ -114,6 +115,23 @@ const Controller = (_ => {
           View.clearTaskList();
         }
       }
+    }
+  };
+
+  const ctrlChangePriority = e => {
+    if (e.target.classList.contains('tasks__priority')) {
+
+      // Get index of task 'li
+      const taskIndex = e.target.closest('.tasks__task').dataset.index;
+
+      // Get current project
+      const currentProject = View.getCurrentProject();
+
+      // Change the priority of the task
+      Model.changePriority(currentProject, taskIndex);
+
+      // Render tasks
+      View.renderTasks(Model.getProject(currentProject));
     }
   };
 

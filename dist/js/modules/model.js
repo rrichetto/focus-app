@@ -47,6 +47,14 @@ const Model = (_ => {
     delete Projects[camelCase(projectName)];
   };
 
+  const changePriority = (currentProject, taskIndex) => {
+    if (Projects[currentProject][taskIndex].priority === false) {
+      Projects[currentProject][taskIndex].priority = true;
+    } else {
+      Projects[currentProject][taskIndex].priority = false;
+    }
+  }
+
   const camelCase = str => {
     return str
       .replace(/[^a-z ]/gi, "")
@@ -62,7 +70,8 @@ const Model = (_ => {
     getProject,
     getCustomProjectNames,
     addProject,
-    deleteProject
+    deleteProject,
+    changePriority
   }
 })();
 
