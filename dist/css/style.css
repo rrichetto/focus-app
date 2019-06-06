@@ -54,6 +54,9 @@ body {
     outline: none;
     border-right: 1px solid #aaa;
     border-radius: 3rem 0 0 3rem; }
+    @media (max-width: 900px) {
+      .form__add {
+        width: 20rem; } }
   .form__date {
     width: 17rem;
     font-family: "Quicksand", sans-serif;
@@ -91,10 +94,17 @@ body {
   min-height: 100vh;
   padding: 5rem 2rem;
   border-right: 1px solid #ccc; }
+  @media (max-width: 900px) {
+    .projects {
+      padding-left: 0rem;
+      padding-right: 1rem; } }
   .projects__project {
     position: relative;
     font-size: 1.8rem;
     padding: 0.75rem; }
+    @media (max-width: 900px) {
+      .projects__project {
+        font-size: 1.6rem; } }
     .projects__project:not(:first-of-type) {
       border-top: 1px dotted #aaa; }
     .projects__project:hover {
@@ -104,6 +114,9 @@ body {
       display: block; }
     .projects__project i:nth-of-type(1) {
       margin-right: 2rem; }
+      @media (max-width: 900px) {
+        .projects__project i:nth-of-type(1) {
+          margin-right: 0.75rem; } }
   .projects__delete {
     display: none;
     position: absolute;
@@ -121,11 +134,14 @@ body {
     width: 100%;
     color: #fff;
     background-color: #194775;
-    padding: 1rem 2rem;
+    padding: 1rem;
     border-radius: 3rem;
     border: none;
     outline: none;
     cursor: pointer; }
+    @media (max-width: 900px) {
+      .projects__new-btn {
+        font-size: 1.4rem; } }
     .projects__new-btn:hover {
       background-color: rgba(25, 71, 117, 0.9); }
   .projects__new-input {
@@ -144,6 +160,10 @@ body {
   min-height: 100vh;
   padding: 5rem 4rem;
   background-color: #fff; }
+  @media (max-width: 900px) {
+    .tasks {
+      padding-left: 2rem;
+      padding-right: 2rem; } }
   .tasks__header {
     display: flex;
     align-items: center; }
@@ -167,10 +187,14 @@ body {
     list-style: none;
     font-size: 1.6rem;
     padding: 2rem; }
+    @media (max-width: 900px) {
+      .tasks__list {
+        padding: 2rem 0; } }
   .tasks__task {
     position: relative;
     display: flex;
     align-items: center;
+    overflow: hidden;
     padding: 1rem;
     border-bottom: 1px solid #ccc; }
     .tasks__task:hover .tasks__delete {
@@ -186,6 +210,9 @@ body {
     display: none;
     margin-right: 5rem;
     color: #aaa; }
+    @media (max-width: 900px) {
+      .tasks__priority {
+        margin-right: 1rem; } }
     .tasks__priority:hover {
       cursor: pointer; }
   .tasks__checkbox {
@@ -197,9 +224,12 @@ body {
     margin-right: auto; }
   .tasks__date {
     text-align: center;
-    width: 8rem;
+    width: 7rem;
     font-size: 1.4rem;
     margin-right: 5rem; }
+    @media (max-width: 900px) {
+      .tasks__date {
+        margin-right: 1rem; } }
   .tasks__delete {
     visibility: hidden;
     color: #f56a6a;

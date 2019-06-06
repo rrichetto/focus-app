@@ -17,6 +17,10 @@
     outline: none;
     border-right: 1px solid $color-grey;
     border-radius: 3rem 0 0 3rem;
+
+    @media (max-width: 900px) {
+      width: 20rem;
+    }
   }
 
   &__date {

@@ -4,6 +4,11 @@
   padding: 5rem 4rem;
   background-color: $color-white;
 
+  @media (max-width: 900px) {
+    padding-left: 2rem;
+    padding-right: 2rem;
+  }
+
   &__header {
     display: flex;
     // justify-content: space-between;
@@ -38,6 +43,10 @@
     list-style: none;
     font-size: 1.6rem;
     padding: 2rem;
+
+    @media (max-width: 900px) {
+      padding: 2rem 0;
+    }
   }
 
   &__task {
@@ -45,6 +54,7 @@
 
     display: flex;
     align-items: center;
+    overflow: hidden;
 
     padding: 1rem;
     border-bottom: 1px solid #ccc;
@@ -73,6 +83,10 @@
     margin-right: 5rem;
     color: $color-grey;
 
+    @media (max-width: 900px) {
+      margin-right: 1rem;
+    }
+
     &:hover {
       cursor: pointer;
     }
@@ -95,9 +109,13 @@
 
   &__date {
     text-align: center;
-    width: 8rem;
+    width: 7rem;
     font-size: 1.4rem;
     margin-right: 5rem;
+
+    @media (max-width: 900px) {
+      margin-right: 1rem;
+    }
   }
 
   &__delete {
