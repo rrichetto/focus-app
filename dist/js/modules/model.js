@@ -36,7 +36,6 @@ const Model = (_ => {
 
     // Add camelCase project name to Projects data
     Projects[camelCase(projectName)] = [];
-    console.log(Projects);
   };
 
   const deleteProject = (projectName, index) => {
@@ -53,8 +52,6 @@ const Model = (_ => {
     } else {
       Projects[currentProject][taskIndex].priority = false;
     }
-
-    sortTasks(currentProject);
   };
 
   const changeCompleted = (currentProject, taskIndex) => {
@@ -63,8 +60,6 @@ const Model = (_ => {
     } else {
       Projects[currentProject][taskIndex].completed = false;
     }
-
-    sortTasks(currentProject);
   }
 
   const sortTasks = projectName => {
@@ -102,7 +97,8 @@ const Model = (_ => {
     addProject,
     deleteProject,
     changePriority,
-    changeCompleted
+    changeCompleted,
+    sortTasks
   }
 })();
 

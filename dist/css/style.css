@@ -145,8 +145,18 @@ body {
   background-color: #fff; }
   .tasks__header {
     display: flex;
-    justify-content: space-between;
     align-items: center; }
+  .tasks__heading {
+    margin-right: auto; }
+  .tasks__sort {
+    display: inline-block;
+    color: #777;
+    border-bottom: 1px solid currentColor;
+    font-size: 1.4rem;
+    margin-right: 5rem;
+    text-decoration: none; }
+    .tasks__sort:hover {
+      color: #000; }
   .tasks__search {
     font-size: 1.4rem;
     padding: .5rem 1rem;
@@ -185,6 +195,8 @@ body {
   .tasks__name {
     margin-right: auto; }
   .tasks__date {
+    text-align: center;
+    width: 8rem;
     font-size: 1.4rem;
     margin-right: 5rem; }
   .tasks__delete {

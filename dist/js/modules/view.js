@@ -12,9 +12,24 @@ const View = (_ => {
   const getInput = _ => {
     return {
       name: taskInputEl.value,
-      date: dateInputEl.value
+      date: formatDate(dateInputEl.value)
     }
   };
+
+  const formatDate = date => {
+    if (date) {
+      // example input: 2019-06-19
+      let splitDate = date.split('-');
+  
+      let twelveMonths = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun',
+                          'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+  
+      let month = twelveMonths[parseInt(splitDate[1]) - 1];
+      let day = splitDate[2];
+  
+      return `${month} ${day}`;
+    }
+  }
 
   const clearInput = _ => {
     taskInputEl.value = '';
@@ -49,7 +64,7 @@ const View = (_ => {
           <i class="tasks__checkbox ${task.completed ? 'fas fa-check-square' : 'far fa-square'}"></i>
           <span class="tasks__name">${task.name}</span>
           <i class="tasks__priority ${task.priority ? 'fas fa-star' : 'far fa-star'}"></i>
-          <span class="tasks__date">${task.date ? task.date : 'add date'}</span>
+          <span class="tasks__date">${task.date ? task.date : '- - - -'}</span>
           <i class="tasks__delete far fa-times-circle"></i>
         </li>
       `;
@@ -101,7 +116,6 @@ const View = (_ => {
   const searchTasks = _ => {
     const taskEls = document.querySelectorAll('.tasks__task');
     const input = document.querySelector('.tasks__search').value;
-    console.log('fired');
 
     taskEls.forEach(task => {
       if (task.textContent.toLowerCase().includes(input.toLowerCase())) {

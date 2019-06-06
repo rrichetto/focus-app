@@ -10,6 +10,7 @@ const Controller = (_ => {
   const newProjectBtnEl = document.querySelector('.projects__new-btn');
   const newProjectInputEl = document.querySelector('.projects__new-input');
   const searchInputEl = document.querySelector('.tasks__search');
+  const taskSortBtnEl = document.querySelector('.tasks__sort');
 
   const init = _ => {
     listeners();
@@ -25,6 +26,7 @@ const Controller = (_ => {
     searchInputEl.addEventListener('keyup', View.searchTasks);
     taskListEl.addEventListener('click', ctrlChangePriority);
     taskListEl.addEventListener('click', ctrlChangeCompleted);
+    taskSortBtnEl.addEventListener('click', ctrlSortTasks);
   };
 
   const ctrlAddTask = e => {
@@ -152,6 +154,17 @@ const Controller = (_ => {
       View.renderTasks(Model.getProject(currentProject));
     }
   };
+
+  const ctrlSortTasks = _ => {
+    // Get current project
+    const currentProject = View.getCurrentProject();
+
+    // Sort tasks
+    Model.sortTasks(currentProject);
+
+    // Render tasks
+    View.renderTasks(Model.getProject(currentProject));
+  }
 
   return {
     init

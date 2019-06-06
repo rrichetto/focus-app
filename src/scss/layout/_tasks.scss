@@ -6,8 +6,25 @@
 
   &__header {
     display: flex;
-    justify-content: space-between;
+    // justify-content: space-between;
     align-items: center;
+  }
+
+  &__heading {
+    margin-right: auto;
+  }
+
+  &__sort {
+    display: inline-block;
+    color: #777;
+    border-bottom: 1px solid currentColor;
+    font-size: 1.4rem;
+    margin-right: 5rem;
+    text-decoration: none;
+
+    &:hover {
+      color: #000;
+    }
   }
 
   &__search {
@@ -77,6 +94,8 @@
   }
 
   &__date {
+    text-align: center;
+    width: 8rem;
     font-size: 1.4rem;
     margin-right: 5rem;
   }
