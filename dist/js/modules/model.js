@@ -14,29 +14,40 @@ const Model = (_ => {
     this.date = date;
     this.priority = false;
     this.completed = false;
-  }
+  };
 
   const addTask = (currentProject, name, date) => {
     const task = new Task(name, date);
 
     Projects[currentProject].push(task);
-  }
+  };
 
   const deleteTask = (currentProject, index) => {
     Projects[currentProject].splice(index, 1);
-  }
+  };
 
   const getProject = project => Projects[project];
 
   const getCustomProjectNames = _ => customProjectNames;
 
   const addProject = projectName => {
-    // Add to list of custom project names
+    // Add to list of customProjectNames
     customProjectNames.push(projectName);
 
     // Add camelCase project name to Projects data
     Projects[camelCase(projectName)] = [];
-  }
+    console.log(Projects);
+  };
+
+  const deleteProject = (projectName, index) => {
+    if (confirm("Are you sure you want to delete this project? All tasks will be lost.")) {
+      // Delete from customProjectNames
+      customProjectNames.splice(index, 1);
+  
+      // Delete from Projects data
+      delete Projects[camelCase(projectName)];
+    }
+  };
 
   const camelCase = str => {
     return str
@@ -45,14 +56,15 @@ const Model = (_ => {
         if (+match === 0) return ""; // or if (/\s+/.test(match)) for white spaces
           return index == 0 ? match.toLowerCase() : match.toUpperCase();
         });
-  }
+  };
 
   return {
     addTask,
     deleteTask,
     getProject,
     getCustomProjectNames,
-    addProject
+    addProject,
+    deleteProject
   }
 })();
 

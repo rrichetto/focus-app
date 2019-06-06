@@ -1,20 +1,16 @@
 CONTROLLER
-- 'Click' on different project 'li'
-- 'Click' on Create New Project
-- 'Enter' on new project name input
 - 'Click' on project delete
 - 'Click' on task checkbox - for color change and add "hide/show completed"
 - 'Click' on task priority
 - 'Dbl Click' on project name (to edit)
 - 'Dbl Click' on task name (to edit)
 - 'Dbl Click' on task date (to edit)
-- 'Keyup' on Search field
+- 'Keyup' on search/filter field
 - 'Load' get data from local storage
 
 
 
 MODEL
-- Add project
 - Delete project
 - Move completed tasks to end (add 'completed: false' after 'priority' in construct)
 - Get current date (to know if it goes in 'Today' or 'Next 7 Days')

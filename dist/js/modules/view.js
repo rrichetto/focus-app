@@ -3,7 +3,7 @@ const View = (_ => {
   // Cache DOM
   const taskInputEl = document.querySelector('.form__add');
   const dateInputEl = document.querySelector('.form__date');
-  const projectEls = document.querySelectorAll('.projects__project');
+  // const projectEls = document.querySelectorAll('.projects__project');
   const taskListEl = document.querySelector('.tasks__list');
   const newProjectInputEl = document.querySelector('.projects__new-input');
   const customProjectListEl = document.querySelector('.projects__custom-list');
@@ -21,6 +21,8 @@ const View = (_ => {
   }
 
   const getCurrentProject = _ => {
+    const projectEls = document.querySelectorAll('.projects__project');
+
     for (let project of projectEls) {
       if (project.classList.contains('active')) return camelCase(project.textContent);
     }
@@ -56,6 +58,8 @@ const View = (_ => {
   };
 
   const changeProject = project => {
+    const projectEls = document.querySelectorAll('.projects__project');
+
     for (let elem of projectEls) elem.classList.remove('active');
 
     project.classList.add('active');
@@ -67,6 +71,7 @@ const View = (_ => {
   }
 
   const hideNewProjectInput = _ => {
+    newProjectInputEl.value = '';
     newProjectInputEl.style.display = 'none';
   }
 
@@ -93,6 +98,7 @@ const View = (_ => {
     renderTasks,
     changeProject,
     showNewProjectInput,
+    hideNewProjectInput,
     getNewProjectInput,
     renderProjects
   }

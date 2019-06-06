@@ -19,7 +19,8 @@ const Controller = (_ => {
     taskListEl.addEventListener('click', ctrlDeleteTask);
     projectListEl.addEventListener('click', ctrlChangeProject);
     newProjectBtnEl.addEventListener('click', View.showNewProjectInput);
-    newProjectInputEl.addEventListener('keypress', ctrlAddNewProject)
+    newProjectInputEl.addEventListener('keypress', ctrlAddNewProject);
+    projectListEl.addEventListener('click', ctrlDeleteProject);
   };
 
   const ctrlAddTask = e => {
@@ -87,8 +88,25 @@ const Controller = (_ => {
 
       // Render projects
       View.renderProjects(Model.getCustomProjectNames());
+
+      // Clear and hide input
+      View.hideNewProjectInput();
     }
-  }
+  };
+
+  const ctrlDeleteProject = e => {
+    if (e.target.classList.contains('projects__delete')) {
+
+      const projectName = e.target.closest('.projects__project').textContent;
+      const index = e.target.closest('.projects__project').dataset.index;
+
+      // Delete project from model
+      Model.deleteProject(projectName, index);
+
+      // Render projects
+      View.renderProjects(Model.getCustomProjectNames());
+    }
+  };
 
   return {
     init
